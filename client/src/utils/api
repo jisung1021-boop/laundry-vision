@@ -1,0 +1,117 @@
+const API_BASE = ''; // uses Vite proxy
+
+/**
+ * Check backend configuration and Gemini API connection status
+ */
+export async function fetchApiConfig() {
+  const res = await fetch(`${API_BASE}/api/config`);
+  if (!res.ok) throw new Error('API 설정을 불러오지 못했습니다.');
+  return res.json();
+}
+
+/**
+ * Update Gemini API Key dynamically
+ */
+export async function updateApiKey(apiKey) {
+  const res = await fetch(`${API_BASE}/api/config/key`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ apiKey })
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || 'API 키 등록에 실패했습니다.');
+  return data;
+}
+
+/**
+ * Fetch care symbols guide data
+ */
+export async function fetchCareGuide(category = 'all', search = '') {
+  const params = new URLSearchParams();
+  if (category && category !== 'all') params.append('category', category);
+  if (search) params.append('search', search);
+
+  const res = await fetch(`${API_BASE}/api/guide?${params.toString()}`);
+  if (!res.ok) throw new Error('세탁 기호 가이드를 불러오지 못했습니다.');
+  return res.json();
+}
+
+/**
+ * Fetch sample care labels
+ */
+export async function fetchSamples() {
+  const res = await fetch(`${API_BASE}/api/guide/samples`);
+  if (!res.ok) throw new Error('샘플 라벨을 불러오지 못했습니다.');
+  return res.json();
+}
+
+/**
+ * Analyze uploaded image file or sample
+ */
+export async function analyzeCareLabel({ file, sampleId }) {
+  const formData = new FormData();
+  if (file) {
+    formData.append('image', file);
+  }
+  if (sampleId) {
+    formData.append('sampleId', sampleId);
+  }
+
+  const res = await fetch(`${API_BASE}/api/analyze`, {
+    method: 'POST',
+    body: formData
+  });
+
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.error || '이미지 분석에 실패했습니다.');
+  }
+  return data;
+}
+
+/**
+ * Fetch history list
+ */
+export async function fetchHistory() {
+  const res = await fetch(`${API_BASE}/api/history`);
+  if (!res.ok) throw new Error('분석 기록을 불러오지 못했습니다.');
+  return res.json();
+}
+
+/**
+ * Save analysis result to database
+ */
+export async function saveAnalysisRecord({ image_name, image_path, analysis_result }) {
+  const res = await fetch(`${API_BASE}/api/history`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ image_name, image_path, analysis_result })
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || '분석 기록 저장에 실패했습니다.');
+  return data;
+}
+
+/**
+ * Delete a history record by ID
+ */
+export async function deleteHistoryRecord(id) {
+  const res = await fetch(`${API_BASE}/api/history/${id}`, {
+    method: 'DELETE'
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || '기록 삭제에 실패했습니다.');
+  return data;
+}
+
+/**
+ * Clear all history
+ */
+export async function clearAllHistoryRecords() {
+  const res = await fetch(`${API_BASE}/api/history`, {
+    method: 'DELETE'
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || '기록 초기화에 실패했습니다.');
+  return data;
+}
