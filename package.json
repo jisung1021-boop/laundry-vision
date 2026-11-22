@@ -1,0 +1,31 @@
+{
+  "name": "laundry-vision",
+  "version": "1.0.0",
+  "description": "LAUNDRY VISION - AI Care Label Analyzer & Smart Laundry Guide",
+  "type": "module",
+  "scripts": {
+    "build": "npm --prefix client run build",
+    "start": "node server/index.js",
+    "start:all": "node start-all.js",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "test": "npm --prefix server test"
+  },
+  "keywords": [
+    "laundry",
+    "care-labels",
+    "gemini",
+    "ai",
+    "vision",
+    "react",
+    "express",
+    "sqlite",
+    "render"
+  ],
+  "author": "LAUNDRY VISION Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

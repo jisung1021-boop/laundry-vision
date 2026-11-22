@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: laundry-vision
+    runtime: node
+    plan: free
+    buildCommand: npm --prefix server install && npm --prefix client install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-1.5-flash
