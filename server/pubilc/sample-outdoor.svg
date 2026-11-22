@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgOutdoor" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <filter id="shadowOutdoor" x="-5%" y="-3%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect x="50" y="30" width="500" height="740" rx="16" fill="url(#bgOutdoor)" stroke="#CBD5E1" stroke-width="2" filter="url(#shadowOutdoor)"/>
+  <line x1="70" y1="50" x2="530" y2="50" stroke="#94A3B8" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <text x="300" y="110" font-family="'Pretendard', sans-serif" font-size="24" font-weight="900" fill="#047857" text-anchor="middle" letter-spacing="3">ALPINE TECH</text>
+  <text x="300" y="140" font-family="'Pretendard', sans-serif" font-size="14" font-weight="600" fill="#475569" text-anchor="middle">GORE-TEX PRO 3L MOUNTAIN PARKA</text>
+  
+  <line x1="90" y1="170" x2="510" y2="170" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <text x="90" y="210" font-family="'Pretendard', sans-serif" font-size="15" font-weight="700" fill="#1E293B">[품질표시]</text>
+  <text x="90" y="235" font-family="'Pretendard', sans-serif" font-size="14" fill="#334155">겉감: 나일론 100% / 방수투습 멤브레인 라미네이팅</text>
+  <text x="90" y="260" font-family="'Pretendard', sans-serif" font-size="13" fill="#64748B">발수코팅: DWR 영구발수가공 / 원산지: 베트남</text>
+
+  <line x1="90" y1="285" x2="510" y2="285" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <text x="300" y="325" font-family="'Pretendard', sans-serif" font-size="16" font-weight="800" fill="#0F172A" text-anchor="middle">취급상 주의사항 (CARE INSTRUCTIONS)</text>
+
+  <!-- 1. Wash 30° with bar under (Gentle) -->
+  <g transform="translate(75, 360)">
+    <rect width="70" height="70" rx="8" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+    <path d="M15 28 L20 48 C20 50 22 52 25 52 L45 52 C48 52 50 50 50 48 L55 28 Z" fill="none" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M15 30 Q25 26 35 30 T55 30" fill="none" stroke="#0284C7" stroke-width="2"/>
+    <text x="35" y="44" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B" text-anchor="middle">30°</text>
+    <!-- Bar under tub -->
+    <line x1="16" y1="57" x2="54" y2="57" stroke="#1E293B" stroke-width="2.5"/>
+    <text x="35" y="86" font-family="sans-serif" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">30°약하게</text>
+  </g>
+
+  <!-- 2. Bleach Prohibited -->
+  <g transform="translate(165, 360)">
+    <rect width="70" height="70" rx="8" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+    <polygon points="35,18 15,54 55,54" fill="none" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round"/>
+    <line x1="20" y1="26" x2="50" y2="52" stroke="#EF4444" stroke-width="2.5"/>
+    <line x1="50" y1="26" x2="20" y2="52" stroke="#EF4444" stroke-width="2.5"/>
+    <text x="35" y="86" font-family="sans-serif" font-size="11" font-weight="600" fill="#DC2626" text-anchor="middle">표백금지</text>
+  </g>
+
+  <!-- 3. Dry: Tumble Low (re-activates DWR) -->
+  <g transform="translate(255, 360)">
+    <rect width="70" height="70" rx="8" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+    <rect x="18" y="18" width="34" height="34" rx="3" fill="none" stroke="#1E293B" stroke-width="2.5"/>
+    <circle cx="35" cy="35" r="13" fill="none" stroke="#1E293B" stroke-width="2"/>
+    <circle cx="35" cy="35" r="2.5" fill="#1E293B"/>
+    <text x="35" y="86" font-family="sans-serif" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">저온건조</text>
+  </g>
+
+  <!-- 4. Iron: Low iron (110°C) -->
+  <g transform="translate(345, 360)">
+    <rect width="70" height="70" rx="8" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+    <path d="M18 48 L52 48 C52 48 50 36 42 36 L28 36 C22 36 18 42 18 48 Z M28 36 L28 28 L40 28" fill="none" stroke="#1E293B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="35" cy="42" r="2" fill="#1E293B"/>
+    <text x="35" y="86" font-family="sans-serif" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">저온다림질</text>
+  </g>
+
+  <!-- 5. Dryclean: PROHIBITED (Circle with X) -->
+  <g transform="translate(435, 360)">
+    <rect width="70" height="70" rx="8" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+    <circle cx="35" cy="36" r="16" fill="none" stroke="#1E293B" stroke-width="2.5"/>
+    <line x1="23" y1="24" x2="47" y2="48" stroke="#EF4444" stroke-width="2.5"/>
+    <line x1="47" y1="24" x2="23" y2="48" stroke="#EF4444" stroke-width="2.5"/>
+    <text x="35" y="86" font-family="sans-serif" font-size="11" font-weight="600" fill="#DC2626" text-anchor="middle">드라이금지</text>
+  </g>
+
+  <line x1="90" y1="480" x2="510" y2="480" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <g transform="translate(90, 510)">
+    <text x="0" y="0" font-family="'Pretendard', sans-serif" font-size="13" font-weight="700" fill="#DC2626">• 드라이클리닝 절대 불가 (방수 멤브레인 분리 파손)</text>
+    <text x="0" y="25" font-family="'Pretendard', sans-serif" font-size="13" font-weight="700" fill="#DC2626">• 섬유유연제 및 표백제 사용 절대 금지</text>
+    <text x="0" y="50" font-family="'Pretendard', sans-serif" font-size="13" fill="#475569">• 지퍼와 벨크로를 모두 잠근 후 아웃도어 전용세제 세탁</text>
+    <text x="0" y="75" font-family="'Pretendard', sans-serif" font-size="13" fill="#475569">• 세탁 후 60℃ 저온 건조기 20분 회전 시 발수성 회복</text>
+    <text x="0" y="100" font-family="'Pretendard', sans-serif" font-size="13" fill="#475569">• 심실링 테이프 손상 방지를 위해 고온 세탁 금지</text>
+  </g>
+
+  <g transform="translate(190, 660)">
+    <rect x="0" y="0" width="220" height="40" fill="#1E293B" opacity="0.05"/>
+    <line x1="15" y1="5" x2="15" y2="35" stroke="#1E293B" stroke-width="2"/>
+    <line x1="25" y1="5" x2="25" y2="35" stroke="#1E293B" stroke-width="4"/>
+    <line x1="40" y1="5" x2="40" y2="35" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="55" y1="5" x2="55" y2="35" stroke="#1E293B" stroke-width="5"/>
+    <line x1="75" y1="5" x2="75" y2="35" stroke="#1E293B" stroke-width="3"/>
+    <line x1="95" y1="5" x2="95" y2="35" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="115" y1="5" x2="115" y2="35" stroke="#1E293B" stroke-width="4.5"/>
+    <line x1="135" y1="5" x2="135" y2="35" stroke="#1E293B" stroke-width="2"/>
+    <line x1="155" y1="5" x2="155" y2="35" stroke="#1E293B" stroke-width="4"/>
+    <line x1="180" y1="5" x2="180" y2="35" stroke="#1E293B" stroke-width="2"/>
+    <line x1="200" y1="5" x2="200" y2="35" stroke="#1E293B" stroke-width="3"/>
+    <text x="110" y="52" font-family="monospace" font-size="11" fill="#64748B" text-anchor="middle" letter-spacing="3">8801122334455</text>
+  </g>
+</svg>
