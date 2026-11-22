@@ -1,0 +1,55 @@
+import { initDb, getAllHistory, saveHistory, getHistoryById, deleteHistory } from './db.js';
+import { laundryGuideData, sampleLabels } from './data/laundryGuideData.js';
+
+async function runTests() {
+  console.log('--- LAUNDRY VISION Backend Verification ---');
+
+  // Test 1: SQLite Init
+  console.log('1. Testing SQLite initialization...');
+  const db = await initDb();
+  if (!db) throw new Error('Database initialization failed');
+  console.log('   ✅ SQLite initialized successfully');
+
+  // Test 2: Guide Data & Samples
+  console.log('2. Testing Guide Data & Samples...');
+  console.log(`   ✅ Total care symbols: ${laundryGuideData.length}`);
+  console.log(`   ✅ Total sample care labels: ${sampleLabels.length}`);
+  if (laundryGuideData.length < 15) throw new Error('Insufficient guide data');
+  if (sampleLabels.length < 4) throw new Error('Insufficient sample labels');
+
+  // Test 3: Save History
+  console.log('3. Testing SQLite Save History...');
+  const testRecord = {
+    image_name: 'test-knit.jpg',
+    image_path: '/samples/sample-wool.svg',
+    analysis_result: sampleLabels[1].analysis
+  };
+  const saved = await saveHistory(testRecord);
+  console.log(`   ✅ Saved record ID: ${saved.id}`);
+
+  // Test 4: Retrieve History
+  console.log('4. Testing SQLite Get History...');
+  const fetched = await getHistoryById(saved.id);
+  if (!fetched || fetched.image_name !== 'test-knit.jpg') {
+    throw new Error('Retrieved history did not match expected record');
+  }
+  console.log(`   ✅ Retrieved record: ${fetched.image_name}, created_at: ${fetched.created_at}`);
+
+  const allHist = await getAllHistory();
+  console.log(`   ✅ Total history records in DB: ${allHist.length}`);
+
+  // Test 5: Delete History
+  console.log('5. Testing SQLite Delete History...');
+  const deleted = await deleteHistory(saved.id);
+  if (!deleted) throw new Error('Delete record failed');
+  const checkDeleted = await getHistoryById(saved.id);
+  if (checkDeleted) throw new Error('Record was not deleted');
+  console.log(`   ✅ Successfully deleted test record ID: ${saved.id}`);
+
+  console.log('--- ALL TESTS PASSED SUCCESSFULLY! ---');
+}
+
+runTests().catch(err => {
+  console.error('❌ Test failed:', err);
+  process.exit(1);
+});
